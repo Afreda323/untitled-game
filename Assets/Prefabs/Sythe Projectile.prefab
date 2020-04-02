@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3231920029415690723}
   - component: {fileID: 1138654546904155534}
   - component: {fileID: 8254070481807788836}
-  m_Layer: 0
+  - component: {fileID: 2237421962578522199}
+  m_Layer: 8
   m_Name: Sythe Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 4100329573805671070, guid: 18aad05c817024205bfa4740d12c31e9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,5 +94,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8482176fdec4fe9aecd336a38f7e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   speed: 7
   lifetime: 0.5
+  particles: {fileID: 7206581500908547356, guid: 05180bdaf929647a18a5df77cefee5a8,
+    type: 3}
+--- !u!61 &2237421962578522199
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808792643209927603}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.95799994, y: 0.5111468}
+    newSize: {x: 0.95799994, y: 0.5111468}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.95799994, y: 0.5111468}
+  m_EdgeRadius: 0

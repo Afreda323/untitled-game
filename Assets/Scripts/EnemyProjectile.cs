@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
+    public int damage;
     public float speed;
     public float lifetime;
+    public ParticleSystem particles;
 
     void Start()
     {
@@ -16,5 +18,19 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Player>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(particles, transform.position, transform.rotation);
     }
 }

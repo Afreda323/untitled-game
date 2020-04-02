@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int health;
     public float speed;
+    public Transform shotPoint;
     public Transform meleeGrip;
     public Transform rangedGrip;
+    public GameObject splatter;
+    public ParticleSystem deathParticles;
 
     Vector2 moveAmount;
     Rigidbody2D rb;
@@ -120,7 +124,24 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(position.y, position.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-        equippedWeapon.Attack(meleeGrip.position, rotation);
+        equippedWeapon.Attack(shotPoint.position, rotation);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    private void OnDestroy()
+    {
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        Instantiate(splatter, transform.position, transform.rotation);
     }
 
 }

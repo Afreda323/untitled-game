@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float timeBetweenAttacks;
     public bool facingRight;
+    public GameObject splatter;
+    public ParticleSystem deathParticles;
 
     [HideInInspector]
     public Transform player;
@@ -48,5 +50,11 @@ public class Enemy : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        Instantiate(splatter, transform.position, transform.rotation);
     }
 }

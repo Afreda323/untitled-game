@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126808318994042353}
   - component: {fileID: 126808318994042352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126808319377962166}
   - component: {fileID: 126808319377962165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,8 @@ GameObject:
   - component: {fileID: 126808320257040664}
   - component: {fileID: 126808320257040670}
   - component: {fileID: 126808320257040669}
-  m_Layer: 0
+  - component: {fileID: 7354367863087288857}
+  m_Layer: 10
   m_Name: Beer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -258,11 +259,36 @@ MonoBehaviour:
   speed: 3
   timeBetweenAttacks: 2
   facingRight: 0
+  splatter: {fileID: 8012454899961214982, guid: 5b5aa3023e439433d9a3cd5a3412b9b4,
+    type: 3}
+  deathParticles: {fileID: 7206581500908547356, guid: 9f9195104400549168cc3c96e1711c22,
+    type: 3}
   player: {fileID: 0}
   stopDistance: 10
   shotPoint: {fileID: 126808320310733059}
   projectile: {fileID: 2852949972776620377, guid: 89815be76a64b45afa31ea07f8403cb3,
     type: 3}
+--- !u!50 &7354367863087288857
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126808320257040665}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &126808320310733068
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 126808320310733059}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126808320317875994}
   - component: {fileID: 126808320317875993}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126808320848147641}
   - component: {fileID: 126808320848147640}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
