@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
 
         moveAmount = moveInput.normalized * speed;
 
-        if ((facingRight && moveInput.x < 0) || (!facingRight && moveInput.x > 0))
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if ((facingRight && mousePos.x < 0) || (!facingRight && mousePos.x > 0))
         {
             Flip();
         }
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Flip()
+    void Flip()
     {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
