@@ -12,4 +12,11 @@ public class Weapon : MonoBehaviour
     }
 
     public Types type;
+    public float attackTime;
+    public Projectile projectile;
+
+    public void Attack(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(projectile, position, rotation);
+    }
 }
