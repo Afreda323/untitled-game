@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public ParticleSystem dashParticles;
     public ParticleSystem deathParticles;
     public Image healthbar;
+    public Image cooldownbar;
 
     Vector2 moveAmount;
     Rigidbody2D rb;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     bool isSwitchingWeapons;
     bool facingRight = true;
     float attackTime;
+    float recentAttack;
     float _dashTime;
     bool isDashing = false;
     CameraShake cameraShake;
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0) && equippedWeapon != null && Time.time >= attackTime)
         {
             attackTime = equippedWeapon.attackTime + Time.time;
+            recentAttack = Time.time;
             if (equippedWeapon.type == Weapon.Types.MELEE)
             {
                 animator.SetTrigger("meleeAttack");
@@ -84,6 +87,12 @@ public class Player : MonoBehaviour
             {
                 animator.SetTrigger("rangedAttack");
             }
+        }
+        if (recentAttack > 0 && attackTime > 0 && equippedWeapon != null)
+        {
+            float clamped = Mathf.Clamp((attackTime - Time.time) / equippedWeapon.attackTime, 0, 1);
+            Vector3 cooldownScale = new Vector3(clamped, 1);
+            cooldownbar.transform.localScale = cooldownScale;
         }
     }
 
