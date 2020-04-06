@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 5
+  speed: 3
   lifetime: 5
   particles: {fileID: 7206581500908547356, guid: 1ed1d34eed5d94aa7b83010834d6be72,
     type: 3}

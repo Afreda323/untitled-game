@@ -9,8 +9,11 @@ public class EnemyProjectile : MonoBehaviour
     public float lifetime;
     public ParticleSystem particles;
 
+    CameraShake cameraShake;
+
     void Start()
     {
+        cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         Destroy(gameObject, lifetime);
     }
 
@@ -32,6 +35,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnDestroy()
     {
+        cameraShake.Shake();
         Instantiate(particles, transform.position, transform.rotation);
     }
 }
