@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67610797799056931}
   - component: {fileID: 67610797799056930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,9 +91,9 @@ GameObject:
   - component: {fileID: 67610799227857168}
   - component: {fileID: 67610799227857169}
   - component: {fileID: 67610799227857174}
-  - component: {fileID: 67610799227857170}
   - component: {fileID: 67610799227857171}
-  m_Layer: 0
+  - component: {fileID: 1113867907}
+  m_Layer: 10
   m_Name: Brain
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -162,32 +162,6 @@ MonoBehaviour:
   player: {fileID: 0}
   stopDistance: 10
   spawn: {fileID: 3783503598808646585, guid: 1fafb62446d774aaaa8358c5716575b8, type: 3}
---- !u!61 &67610799227857170
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67610799227857175}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.056229115, y: 0.064261675}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5622902, y: 1.1285233}
-  m_EdgeRadius: 0
 --- !u!50 &67610799227857171
 Rigidbody2D:
   serializedVersion: 4
@@ -208,7 +182,33 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!61 &1113867907
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67610799227857175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000035762787, y: 0.5223198}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8602912, y: 2.0446396}
+  m_EdgeRadius: 0
 --- !u!1 &67610799292335740
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67610799292335743}
   - component: {fileID: 67610799292335742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67610799396818137}
   - component: {fileID: 67610799396818136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986656806232495195, guid: f2a0af112694f48a3a07019f892f0064,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7986656806232495192, guid: f2a0af112694f48a3a07019f892f0064,
         type: 3}
@@ -485,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986656805503879590, guid: f2a0af112694f48a3a07019f892f0064,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a0af112694f48a3a07019f892f0064, type: 3}

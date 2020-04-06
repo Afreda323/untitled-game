@@ -29,10 +29,12 @@ public class SelfDestructEnemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.tag);
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Barrier"))
         {
-            collision.GetComponent<Player>().TakeDamage(damage);
+            if(collision.CompareTag("Player"))
+            {
+                collision.GetComponent<Player>().TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
     }
