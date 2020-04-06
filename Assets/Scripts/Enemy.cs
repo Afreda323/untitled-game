@@ -42,9 +42,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        print(health);
-        print(startHealth);
-        print(health / startHealth);
         Vector3 healthScale = new Vector3((float)health / (float)startHealth, 1);
         healthbar.transform.localScale = healthScale;
 
@@ -65,6 +62,9 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(deathParticles, transform.position, transform.rotation);
-        Instantiate(splatter, transform.position, transform.rotation);
+        if (splatter != null)
+        {
+            Instantiate(splatter, transform.position, transform.rotation);
+        }
     }
 }

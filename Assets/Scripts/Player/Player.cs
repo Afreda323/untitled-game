@@ -86,6 +86,9 @@ public class Player : MonoBehaviour
             else if (equippedWeapon.type == Weapon.Types.RANGED)
             {
                 animator.SetTrigger("rangedAttack");
+            } else if (equippedWeapon.type == Weapon.Types.BURST)
+            {
+                animator.SetTrigger("burstAttack");
             }
         }
         if (recentAttack > 0 && attackTime > 0 && equippedWeapon != null)
@@ -126,7 +129,7 @@ public class Player : MonoBehaviour
             {
                 Destroy(meleeGrip.GetChild(0).gameObject);
             }
-            else if (equippedWeapon.type == Weapon.Types.RANGED)
+            else if (equippedWeapon.type == Weapon.Types.RANGED || equippedWeapon.type == Weapon.Types.BURST)
             {
                 Destroy(rangedGrip.GetChild(0).gameObject);
             }
@@ -141,7 +144,7 @@ public class Player : MonoBehaviour
         if (equippedWeapon.type == Weapon.Types.MELEE)
         {
             Instantiate(equippedWeapon, meleeGrip.position, new Quaternion(0, 0, 0, 0), meleeGrip);
-        } else if (equippedWeapon.type == Weapon.Types.RANGED)
+        } else if (equippedWeapon.type == Weapon.Types.RANGED || equippedWeapon.type == Weapon.Types.BURST)
         {
             Instantiate(equippedWeapon, rangedGrip.position, new Quaternion(0, 0, 0, 0), rangedGrip);
         }
