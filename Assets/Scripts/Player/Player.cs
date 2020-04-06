@@ -6,10 +6,13 @@ public class Player : MonoBehaviour
 {
     public int health;
     public float speed;
+    public float dashSpeed;
+    public float dashTime;
     public Transform shotPoint;
     public Transform meleeGrip;
     public Transform rangedGrip;
     public GameObject splatter;
+    public ParticleSystem dashParticles;
     public ParticleSystem deathParticles;
 
     Vector2 moveAmount;
@@ -21,18 +24,39 @@ public class Player : MonoBehaviour
     bool isSwitchingWeapons;
     bool facingRight = true;
     float attackTime;
+    float _dashTime;
+    bool isDashing = false;
+    CameraShake cameraShake;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
+        cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
     }
 
     private void Update()
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         animator.SetBool("isWalking", moveInput.y != 0 || moveInput.x != 0);
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        {
+            speed += dashSpeed;
+            isDashing = true;
+            _dashTime = dashTime;
+            cameraShake.Shake();
+            Instantiate(dashParticles, transform.position, Quaternion.identity);
+        }
+        if (_dashTime <= 0 && isDashing == true)
+        {
+            isDashing = false;
+            speed -= dashSpeed;
+        }
+        else
+        {
+            _dashTime -= Time.deltaTime;
+        }
 
         moveAmount = moveInput.normalized * speed;
 
