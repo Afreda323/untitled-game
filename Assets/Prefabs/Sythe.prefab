@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  attackTime: 1
+  attackTime: 0.2
   projectile: {fileID: 8254070481807788836, guid: acfce68edb84d46c789d7d326066ddea,
     type: 3}
