@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject splatter;
     public ParticleSystem dashParticles;
     public ParticleSystem deathParticles;
+    public Image healthbar;
 
     Vector2 moveAmount;
     Rigidbody2D rb;
@@ -27,10 +29,12 @@ public class Player : MonoBehaviour
     float _dashTime;
     bool isDashing = false;
     CameraShake cameraShake;
+    int startHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        startHealth = health;
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
@@ -154,6 +158,8 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Vector3 healthScale = new Vector3((float)health / (float)startHealth, 1);
+        healthbar.transform.localScale = healthScale;
 
         if (health <= 0)
         {

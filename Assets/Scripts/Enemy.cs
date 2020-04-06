@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Enemy : MonoBehaviour
     public bool facingRight;
     public GameObject splatter;
     public ParticleSystem deathParticles;
+    public Image healthbar;
+
+    int startHealth;
 
     [HideInInspector]
     public Transform player;
@@ -19,6 +23,7 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        startHealth = health;
     }
 
     [HideInInspector]
@@ -37,6 +42,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        print(health);
+        print(startHealth);
+        print(health / startHealth);
+        Vector3 healthScale = new Vector3((float)health / (float)startHealth, 1);
+        healthbar.transform.localScale = healthScale;
 
         if (health <= 0)
         {
